@@ -1,5 +1,8 @@
+function parse_git_branch(){
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
+}
 
-function prompt_command () {
+function prompt_command(){
     # Colors:
     #   Foreground: '\e[MODE;COLORm]'
     #     MODE:
@@ -33,12 +36,13 @@ function prompt_command () {
     PY_ENV="\e[3;32m${PY_ENV} "
 
     # Current git branch
-    GITBRANCH=$(git branch 2>/dev/null | colrm 1 2)
-    if [ -n $GITBRANCH ]; then
+    GITBRANCH=$(parse_git_branch)
+    if [[ -n $GITBRANCH ]]; then
         if [[ -n $(git status -s) ]]; then
-            GITBRANCH="${GITBRANCH}\e[3;31m*"
+            GITBRANCH="\e[3;31m${GITBRANCH} "
+        else
+            GITBRANCH="\e[3;33m${GITBRANCH} "
         fi
-        GITBRANCH="\e[3;33m${GITBRANCH} "
     fi
 
     # Base prompt
