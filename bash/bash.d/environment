@@ -1,0 +1,5 @@
+
+
+# Path
+PATH=$PATH:$HOME/.local/bin
+

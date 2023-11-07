@@ -1,0 +1,55 @@
+
+function prompt_command () {
+    # Colors:
+    #   Foreground: '\e[MODE;COLORm]'
+    #     MODE:
+    #       0: Regular
+    #       1: Bold
+    #       3: Italic
+    #       4: Underline
+    #     COLOR:
+    #       30: Black
+    #       31: Red
+    #       32: Green
+    #       33: Yellow
+    #       34: Blue
+    #       35: Purple
+    #       36: Cyan
+    #       37: White
+    #   Background: '\e[COLORm]'
+    #     COLOR: 
+    #       40: Black
+    #       41: Red
+    #       42: Green
+    #       43: Yellow
+    #       44: Blue
+    #       45: Purple
+    #       46: Cyan
+    #       47: White
+    #       0: Reset
+
+    # Current python environment
+    PY_ENV="base"
+    PY_ENV="\e[3;32m${PY_ENV} "
+
+    # Current git branch
+    GITBRANCH=$(git branch 2>/dev/null | colrm 1 2)
+    if [ -n $GITBRANCH ]; then
+        if [[ -n $(git status -s) ]]; then
+            GITBRANCH="${GITBRANCH}\e[3;31m*"
+        fi
+        GITBRANCH="\e[3;33m${GITBRANCH} "
+    fi
+
+    # Base prompt
+    PROMPT="\e[3;37m\u@\h\e[0;35m:\e[0;37m\w "
+
+    # Set prompt variable
+    PS1="┌\e[40m ${PY_ENV}${GITBRANCH}${PROMPT}\e[0m\n└> "
+ 
+    # Cleanup
+    unset GITBRANCH PROMPT PY_ENV
+}
+
+
+PROMPT_COMMAND=prompt_command
