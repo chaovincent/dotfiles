@@ -33,7 +33,9 @@ function prompt_command(){
 
     # Current python environment
     PY_ENV=""
-    PY_ENV="\e[3;32m${PY_ENV} "
+    if [[ -n $PY_ENV ]]; then
+        PY_ENV="\e[3;32m${PY_ENV} "
+    fi
 
     # Current git branch
     GITBRANCH=$(parse_git_branch)
