@@ -15,4 +15,7 @@ ln -fsvt "${HOME}/.config/" \
 # Symlink specific files
 ln -fsv "${HOME}/.config/bash/bashrc" "${HOME}/.bashrc"
 
+# Run additional setup scripts
+${DOTFILES}/scripts/pvim.sh
+
 unset DOTFILES
