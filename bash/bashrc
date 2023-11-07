@@ -4,15 +4,9 @@ case $- in
       *) return;;
 esac
 
-# Temporary variables to be unset later
-DIRNAME=$(dirname $(realpath ${BASH_SOURCE[0]}))
-
 # Source additional files
-if [ -d ${DIRNAME}/bash.d ]; then
-    for d in $DIRNAME/bash.d/*; do
+if [ -d $(dirname $(realpath ${BASH_SOURCE[0]}))/bash.d ]; then
+    for d in $(dirname $(realpath ${BASH_SOURCE[0]}))/bash.d/*; do
         . $d
     done
 fi
-
-# Cleanup
-unset DIRNAME
