@@ -1,5 +1,2 @@
-
-
-# Path
 PATH=$PATH:$HOME/.local/bin
-
+EDITOR=vi
