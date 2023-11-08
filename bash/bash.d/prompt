@@ -4,7 +4,7 @@ function parse_git_branch(){
 
 function prompt_command(){
     # Colors:
-    #   Foreground: '\e[MODE;COLORm]'
+    #   Foreground: '\e[MODE;COLORm'
     #     MODE:
     #       0: Regular
     #       1: Bold
@@ -19,7 +19,7 @@ function prompt_command(){
     #       35: Purple
     #       36: Cyan
     #       37: White
-    #   Background: '\e[COLORm]'
+    #   Background: '\e[COLORm'
     #     COLOR: 
     #       40: Black
     #       41: Red
@@ -33,6 +33,13 @@ function prompt_command(){
 
     # Current python environment
     PY_ENV=""
+    if [[ -n $CONDA_DEFAULT_ENV ]]; then
+        PY_ENV=$CONDA_DEFAULT_ENV
+    elif [[ -n $VIRTUAL_ENV ]]; then
+        PY_ENV=$(dirname $VIRTUAL_ENV)
+        PY_ENV="${PY_ENV##*/}"
+    fi
+
     if [[ -n $PY_ENV ]]; then
         PY_ENV="\e[3;32m${PY_ENV} "
     fi
@@ -41,17 +48,17 @@ function prompt_command(){
     GITBRANCH=$(parse_git_branch)
     if [[ -n $GITBRANCH ]]; then
         if [[ -n $(git status -s) ]]; then
-            GITBRANCH="\e[3;31m${GITBRANCH} "
+            GITBRANCH="\e[41m\e[3;30m${GITBRANCH} "
         else
-            GITBRANCH="\e[3;33m${GITBRANCH} "
+            GITBRANCH="\e[43m\e[3;30m${GITBRANCH} "
         fi
     fi
 
     # Base prompt
-    PROMPT="\e[3;37m\u@\h\e[0;35m:\e[0;37m\w "
+    PROMPT="\e[0;30m\e[46m\u@\h\e[0;31m:\e[0;37m\w "
 
     # Set prompt variable
-    PS1="┌\e[40m ${PY_ENV}${GITBRANCH}${PROMPT}\e[0m\n└> "
+    PS1="┌ ${PY_ENV}${GITBRANCH}${PROMPT}\e[0m\n└> "
  
     # Cleanup
     unset GITBRANCH PROMPT PY_ENV
