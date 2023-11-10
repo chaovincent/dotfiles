@@ -93,6 +93,11 @@ return {
         "nvim-treesitter/nvim-treesitter",
     },
 
+    -- Vim Markdown Composer
+    {
+        "euclio/vim-markdown-composer",
+    },
+
     -- Which-key
     {
         "folke/which-key.nvim",
