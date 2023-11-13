@@ -1,0 +1,196 @@
+#==============#
+# Remote Hosts #
+#==============#
+
+ai001=172.16.87.66  # i2x256-ai01.us.uniquify.com
+ai002=172.16.87.67  # i2x256-ai02.us.uniquify.com
+ai003=172.16.87.75  # i2x256-ai03.us.uniquify.com
+ai004=172.16.87.76  # i2x256-ai04.us.uniquify.com
+ai005=172.16.87.77  # i2x256-ai05.us.uniquify.com
+ai006=172.16.87.78  # i2x256-ai06.us.uniquify.com
+ai007=172.16.87.91  # a1x256-ai01.us.uniquify.com
+ai008=172.16.87.92  # a1x256-ai02.us.uniquify.com
+ai101=172.16.87.56  # i2x144-ai01.us.uniquify.com
+ai102=172.16.87.60  # a4x128-ai01.us.uniquify.com
+ai103=172.16.87.71  # i2x72-ai01.us.uniquify.com
+ai104=172.16.87.72  # i2x72-ai02.us.uniquify.com
+ai201=172.16.87.51  # i2x32-ai01.us.uniquify.com
+ai202=172.16.87.61  # a4x128-ai03.us.uniquify.com
+ai203=172.16.87.57  # a4x64-ai01.us.uniquify.com
+ai204=172.16.87.58  # a4x64-ai02.us.uniquify.com
+ai301=172.16.87.54  # a2x32-ai02.us.uniquify.com
+
+aivn01=172.16.35.83  # i1x16-ai01.vn.uniquify.com
+
+# soc01=a1x256-01 
+# soc02=a1x256-02 
+# soc03=a1x256-03 
+# soc04=a1x512-01 
+# soc05=a1x512-02 
+# soc06=i2x512-01 
+soc07=i2x288-01 
+# soc08=i2x288-02 
+soc09=i2x288-03 
+# soc10=i2x288-04 
+# soc11=i2x256-01 
+# soc12=i2x256-02 
+# soc13=i2x256-03 
+# soc14=i2x256-04 
+# soc15=i2x256-05 
+# soc16=i2x256-07 
+# soc17=i2x192-01 
+# soc18=i2x192-02 
+# soc19=i2x192-03 
+# soc20=i2x192-04 
+# soc21=i2x144-01 
+# soc22=i2x144-02 
+soc23=i2x144-04t  
+# soc24=i2x144-10 
+soc25=i2x144-100t  
+# soc26=i2x144-13  
+# soc27=i2x144-17  
+soc28=i2x144-20  
+# soc29=i2x144-22  
+# soc30=i2x144-24  
+# soc31=i2x144-25  
+# soc32=i2x144-27  
+# soc33=i2x96-01   
+# soc34=i2x96-02   
+# soc35=i2x72-19   
+# soc36=i2x72-20   
+# soc37=i2x72-22   
+soc38=i2x72-28   
+# soc39=i2x72-35   
+soc40=i2x72-36   
+# soc41=i2x72-37   
+# soc42=i4x256-02  
+# soc43=i4x256-03  
+sockr01=172.16.97.11  # i2x512-01.kr.uniquify.com
+sockr02=172.16.97.12  # i2x512-02.kr.uniquify.com
+sockr03=172.16.97.13  # i2x512-03.kr.uniquify.com
+
+
+#===========#
+# Functions #
+#===========#
+
+sshcwd() {
+    ssh -t $USER@$1 "cd $PWD; bash --login"
+}
+
+S() {
+    ssh -t $USER@$1 "cd $PWD; bash --login"
+}
+
+
+#=========#
+# Aliases #
+#=========#
+
+alias cdu="cd /space/hotel/$USER"
+alias cdp="cd /space/hotel/$USER/projects"
+
+alias utop='(
+tmux new -s utop \; \
+    split-window -h -p 75 \; \
+    split-window -h -p 67 \; \
+    split-window -h -p 50 \; \
+    select-pane -t 0 \; \
+    split-window -v -p 50 \; \
+    select-pane -t 2 \; \
+    split-window -v -p 50 \; \
+    select-pane -t 4 \; \
+    split-window -v -p 50 \; \
+    select-pane -t 6 \; \
+    split-window -v -p 50 \; \
+    send-keys -t 0 "ssh $USER@${ai001} -t top -d 5" C-m \; \
+    send-keys -t 2 "ssh $USER@${ai002} -t top -d 5" C-m \; \
+    send-keys -t 4 "ssh $USER@${ai003} -t top -d 5" C-m \; \
+    send-keys -t 6 "ssh $USER@${ai004} -t top -d 5" C-m \; \
+    send-keys -t 1 "ssh $USER@${ai005} -t top -d 5" C-m \; \
+    send-keys -t 3 "ssh $USER@${ai006} -t top -d 5" C-m \; \
+    send-keys -t 5 "ssh $USER@${ai007} -t top -d 5" C-m \; \
+    send-keys -t 7 "ssh $USER@${ai008} -t top -d 5" C-m \; \
+    setw synchronize-panes \; \
+)'
+
+alias unvda='(
+tmux new -s unvda \; \
+    split-window -h -p 75 \; \
+    split-window -h -p 67 \; \
+    split-window -h -p 50 \; \
+    select-pane -t 0 \; \
+    split-window -v -p 50 \; \
+    select-pane -t 2 \; \
+    split-window -v -p 50 \; \
+    select-pane -t 4 \; \
+    split-window -v -p 50 \; \
+    select-pane -t 6 \; \
+    split-window -v -p 50 \; \
+    send-keys -t 0 "ssh $USER@${ai001} -t nvda" C-m \; \
+    send-keys -t 2 "ssh $USER@${ai002} -t nvda" C-m \; \
+    send-keys -t 4 "ssh $USER@${ai003} -t nvda" C-m \; \
+    send-keys -t 6 "ssh $USER@${ai004} -t nvda" C-m \; \
+    send-keys -t 1 "ssh $USER@${ai005} -t nvda" C-m \; \
+    send-keys -t 3 "ssh $USER@${ai006} -t nvda" C-m \; \
+    send-keys -t 5 "ssh $USER@${ai007} -t nvda" C-m \; \
+    send-keys -t 7 "ssh $USER@${ai008} -t nvda" C-m \; \
+    setw synchronize-panes \; \
+)'
+
+alias unvda='(
+tmux new -s unvda \; \
+    split-window -h -p 75 \; \
+    split-window -h -p 67 \; \
+    split-window -h -p 50 \; \
+    select-pane -t 0 \; \
+    split-window -v -p 50 \; \
+    select-pane -t 2 \; \
+    split-window -v -p 50 \; \
+    select-pane -t 4 \; \
+    split-window -v -p 50 \; \
+    select-pane -t 6 \; \
+    split-window -v -p 50 \; \
+    send-keys -t 0 "ssh $USER@${ai001} -t nvda" C-m \; \
+    send-keys -t 2 "ssh $USER@${ai002} -t nvda" C-m \; \
+    send-keys -t 4 "ssh $USER@${ai003} -t nvda" C-m \; \
+    send-keys -t 6 "ssh $USER@${ai004} -t nvda" C-m \; \
+    send-keys -t 1 "ssh $USER@${ai005} -t nvda" C-m \; \
+    send-keys -t 3 "ssh $USER@${ai006} -t nvda" C-m \; \
+    send-keys -t 5 "ssh $USER@${ai007} -t nvda" C-m \; \
+    send-keys -t 7 "ssh $USER@${ai008} -t nvda" C-m \; \
+    setw synchronize-panes \; \
+)'
+
+alias ut4='(
+tmux new  \; \
+    split-window -v -p 50 \; \
+    split-window -h -p 50 \; \
+    select-pane -t 0 \; \
+    split-window -h -p 50 \; \
+    setw synchronize-panes \; \
+)'
+
+alias ut8='(
+tmux new -s uterm \; \
+    split-window -h -p 75 \; \
+    split-window -h -p 67 \; \
+    split-window -h -p 50 \; \
+    select-pane -t 0 \; \
+    split-window -v -p 50 \; \
+    select-pane -t 2 \; \
+    split-window -v -p 50 \; \
+    select-pane -t 4 \; \
+    split-window -v -p 50 \; \
+    select-pane -t 6 \; \
+    split-window -v -p 50 \; \
+    send-keys -t 0 "ssh $USER@${ai001}" C-m \; \
+    send-keys -t 2 "ssh $USER@${ai002}" C-m \; \
+    send-keys -t 4 "ssh $USER@${ai003}" C-m \; \
+    send-keys -t 6 "ssh $USER@${ai004}" C-m \; \
+    send-keys -t 1 "ssh $USER@${ai005}" C-m \; \
+    send-keys -t 3 "ssh $USER@${ai006}" C-m \; \
+    send-keys -t 5 "ssh $USER@${ai007}" C-m \; \
+    send-keys -t 7 "ssh $USER@${ai008}" C-m \; \
+    setw synchronize-panes \; \
+)'
