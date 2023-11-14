@@ -82,12 +82,8 @@ XDG_CACHE_HOME=/space/hotel/vchao/.cache/
 # Functions #
 #===========#
 
-sshcwd() {
-    ssh -t $USER@$1 "cd $PWD; bash --login"
-}
-
 S() {
-    ssh -t $USER@$1 "cd $PWD; bash --login"
+    ssh -t $USER@$1 "cd $PWD; bash"
 }
 
 
