@@ -69,6 +69,14 @@ sockr01=172.16.97.11  # i2x512-01.kr.uniquify.com
 sockr02=172.16.97.12  # i2x512-02.kr.uniquify.com
 sockr03=172.16.97.13  # i2x512-03.kr.uniquify.com
 
+#=============#
+# Environment #
+#=============#
+
+XDG_CACHE_HOME=/space/hotel/vchao/.cache/
+# TORCH_HOME=/space/hotel/vchao/.cache/torch
+# PIP_CACHE_DIR=/space/hotel/vchao/.cache/pip
+# RUFF_CACHE_DIR=/space/hotel/vchao/.cache/ruff
 
 #===========#
 # Functions #
