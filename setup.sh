@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 DOTFILES=$(realpath $(dirname $0))
 
@@ -10,6 +10,7 @@ fi
 # Symlink dotfile directories to ${HOME}/.config/
 ln -fsvt "${HOME}/.config/" \
     "${DOTFILES}/bash" \
+    "${DOTFILES}/git" \
     "${DOTFILES}/nvim"
 
 # Symlink specific files
@@ -17,6 +18,10 @@ ln -fsv "${HOME}/.config/bash/bashrc" "${HOME}/.bashrc"
 
 # Run additional setup scripts
 ${DOTFILES}/scripts/micromamba.sh
-${DOTFILES}/scripts/pvim.sh
+${DOTFILES}/scripts/nvim.sh
 
+# Source bashrc
+source "${HOME}/.bashrc"
+
+# Cleanup
 unset DOTFILES
