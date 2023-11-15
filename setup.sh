@@ -16,6 +16,7 @@ ln -fsvt "${HOME}/.config/" \
 ln -fsv "${HOME}/.config/bash/bashrc" "${HOME}/.bashrc"
 
 # Run additional setup scripts
+${DOTFILES}/scripts/micromamba.sh
 ${DOTFILES}/scripts/pvim.sh
 
 unset DOTFILES
