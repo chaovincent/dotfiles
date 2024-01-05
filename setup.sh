@@ -11,6 +11,7 @@ fi
 ln -fsvt "${HOME}/.config/" \
     "${DOTFILES}/bash" \
     "${DOTFILES}/git" \
+    "${DOTFILES}/mpv" \
     "${DOTFILES}/nvim"
 
 # Symlink specific files
