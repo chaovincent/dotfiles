@@ -10,10 +10,8 @@
  * Keyframes
  * -------------------------------------------------------------------------- */
 
-/*
-Arc-Dark Color Scheme
-*/
 @define-color highlight #5294e2 ;
+@define-color text #bebebe;
 @define-color base1  #404552 ;
 
 @keyframes blink-warning {
@@ -54,10 +52,10 @@ Arc-Dark Color Scheme
 /* The whole bar */
 #waybar {
     background: transparent;
-    color: #bebebe;
+    color: @text;
     background-color: @base1;
-    font-family: UbuntuMono;
-    font-size: 14px;
+    font-family: Font Awesome;
+    font-size: 12px;
 }
 
 /* Every modules */
@@ -169,6 +167,7 @@ Arc-Dark Color Scheme
     border-bottom: 3px solid transparent;
     margin-bottom: 0px;
     padding:0px;
+    color: @text;
 }
 
 #workspaces button.focused {
@@ -179,7 +178,7 @@ Arc-Dark Color Scheme
 
 #workspaces button.urgent {
     border-color: #c9545d;
-    color: #c9545d;
+    color: #c9545d ;
 }
 
 #custom-power {
