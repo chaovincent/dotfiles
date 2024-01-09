@@ -17,7 +17,7 @@ elif [ -x "$(command -v vi)" ]; then
 fi
 
 # Conda
-if [ -x "$(command -v micromamba)" ]; then
+if [ -x "$(which $(command -v micromamba))" ]; then
     alias conda=micromamba
 fi
 
