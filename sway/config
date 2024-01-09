@@ -1,0 +1,7 @@
+# Config for sway
+
+# User config directory
+include $HOME/.config/sway/config.d/*
+
+# System config directory
+include /etc/sway/config.d/*
