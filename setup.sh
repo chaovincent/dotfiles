@@ -20,7 +20,7 @@ ln -fsv "${HOME}/.config/bash/bashrc" "${HOME}/.bashrc"
 # Run additional setup scripts
 ${DOTFILES}/scripts/micromamba.sh
 ${DOTFILES}/scripts/nvim.sh
-${DOTFILES}/scripts/sway.sh
+# ${DOTFILES}/scripts/sway.sh
 
 # Source bashrc
 source "${HOME}/.bashrc"
