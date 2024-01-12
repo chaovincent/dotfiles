@@ -5,33 +5,15 @@
 #==============#
 
 set -- \
+    blueman \
+    docker \
     fcitx5 \
     fcitx5-hangul \
-    grim \
+    git \
     jq \
-    libnotify-bin \
-    slurp \
-    sway \
-    swaylock \
-    waybar \
-    wdisplays \
-    wl-clipboard \
-    wofi
+    neofetch
 
-echo "Installing packages:\n  $@\n"
-
-#===================#
-# Link config files #
-#===================#
-
-DOTFILES=$(git rev-parse --show-toplevel)
-
-# Symlink dotfile directories to ${HOME}/.config/
-ln -fsvt "${HOME}/.config/" \
-    "${DOTFILES}/sway" \
-    "${DOTFILES}/swaylock" \
-    "${DOTFILES}/waybar" \
-    "${DOTFILES}/wofi"
+echo "Installing packages:\n  $@"
 
 #==================#
 # Install Packages #

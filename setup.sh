@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOTFILES=$(realpath $(dirname $0))
+DOTFILES=$(git rev-parse --show-toplevel)
 
 # Create ${HOME}/.local/bin if it doesn't exist
 if [ ! -d "${HOME}/.local/bin" ]; then
@@ -18,6 +18,7 @@ ln -fsvt "${HOME}/.config/" \
 ln -fsv "${HOME}/.config/bash/bashrc" "${HOME}/.bashrc"
 
 # Run additional setup scripts
+${DOTFILES}/scripts/packages.sh
 ${DOTFILES}/scripts/micromamba.sh
 ${DOTFILES}/scripts/nvim.sh
 # ${DOTFILES}/scripts/sway.sh
