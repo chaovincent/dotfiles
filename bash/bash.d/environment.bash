@@ -1,6 +1,5 @@
 #!/bin/bash
 
-export PATH=$PATH:$HOME/.local/bin
 export EDITOR=vi
 export TERM=xterm-256color
 
