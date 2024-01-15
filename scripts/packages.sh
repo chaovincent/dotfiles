@@ -11,7 +11,9 @@ set -- \
     fcitx5-hangul \
     git \
     jq \
-    neofetch
+    neofetch \
+    pandoc \
+    tmux
 
 echo "Installing packages:\n  $@"
 
