@@ -12,7 +12,8 @@ ln -fsvt "${HOME}/.config/" \
     "${DOTFILES}/bash" \
     "${DOTFILES}/git" \
     "${DOTFILES}/mpv" \
-    "${DOTFILES}/nvim"
+    "${DOTFILES}/nvim" \
+    "${DOTFILES}/tmux"
 
 # Symlink specific files
 ln -fsv "${HOME}/.config/bash/bashrc" "${HOME}/.bashrc"
