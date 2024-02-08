@@ -94,9 +94,9 @@ return {
     },
 
     -- Vim Markdown Composer
-    {
-        "euclio/vim-markdown-composer",
-    },
+    --  {
+    --      "euclio/vim-markdown-composer",
+    --  },
 
     -- Which-key
     {
