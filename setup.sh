@@ -4,7 +4,7 @@ DOTFILES=$(git rev-parse --show-toplevel)
 
 # Create ${HOME}/.local/bin if it doesn't exist
 if [ ! -d "${HOME}/.local/bin" ]; then
-    mkdir -v "${HOME}/.local/bin"
+    mkdir -pv "${HOME}/.local/bin"
 fi
 
 # Symlink dotfile directories to ${HOME}/.config/
