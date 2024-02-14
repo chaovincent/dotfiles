@@ -6,13 +6,13 @@
 
 set -- \
     blueman \
-    docker \
     fcitx5 \
     fcitx5-hangul \
     git \
     jq \
     neofetch \
     pandoc \
+    sshfs \
     tmux
 
 echo "Installing packages:\n  $@"

@@ -19,7 +19,8 @@ ln -fsvt "${HOME}/.config/" \
 ln -fsv "${HOME}/.config/bash/bashrc" "${HOME}/.bashrc"
 
 # Run additional setup scripts
-${DOTFILES}/scripts/packages.sh
+# ${DOTFILES}/scripts/packages.sh
+# ${DOTFILES}/scripts/docker.sh
 ${DOTFILES}/scripts/micromamba.sh
 ${DOTFILES}/scripts/nvim.sh
 # ${DOTFILES}/scripts/sway.sh
