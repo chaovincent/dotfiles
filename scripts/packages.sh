@@ -13,7 +13,9 @@ set -- \
     neofetch \
     pandoc \
     sshfs \
-    tmux
+    tmux \
+    pipewire \
+    xdg-desktop-portal-wlr
 
 echo "Installing packages:\n  $@"
 
