@@ -93,6 +93,11 @@ return {
         "nvim-treesitter/nvim-treesitter",
     },
 
+    -- Treesitter Context
+    {
+        "nvim-treesitter/nvim-treesitter-context",
+    },
+
     -- Vim Markdown Composer
     --  {
     --      "euclio/vim-markdown-composer",
