@@ -2,6 +2,11 @@
 
 DOTFILES=$(git rev-parse --show-toplevel)
 
+# Create ${HOME}/.config if it doesn't exist
+if [ ! -d "${HOME}/.config" ]; then
+    mkdir -pv "${HOME}/.config"
+fi
+
 # Create ${HOME}/.local/bin if it doesn't exist
 if [ ! -d "${HOME}/.local/bin" ]; then
     mkdir -pv "${HOME}/.local/bin"
@@ -21,7 +26,7 @@ ln -fsv "${HOME}/.config/bash/bashrc" "${HOME}/.bashrc"
 # Run additional setup scripts
 # ${DOTFILES}/scripts/packages.sh
 # ${DOTFILES}/scripts/docker.sh
-${DOTFILES}/scripts/micromamba.sh
+# ${DOTFILES}/scripts/micromamba.sh
 ${DOTFILES}/scripts/nvim.sh
 # ${DOTFILES}/scripts/sway.sh
 
