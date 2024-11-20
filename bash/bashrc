@@ -16,6 +16,12 @@ if [ -d $(dirname $(realpath ${BASH_SOURCE[0]}))/bash.d ]; then
     done
 fi
 
+# PyEnv
+export PYENV_ROOT="$HOME/.cache/pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
 # >>> mamba initialize >>>
 # !! Contents within this block are managed by 'mamba init' !!
 export MAMBA_EXE='/home/vchao/.local/bin/micromamba';
