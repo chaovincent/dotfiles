@@ -4,3 +4,5 @@
 [core]
 	editor = vi
 	excludesfile = /home/vchao/.config/git/ignore
+[pull]
+	rebase = false

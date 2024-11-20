@@ -6,14 +6,16 @@
 
 set -- \
     blueman \
-    docker \
     fcitx5 \
     fcitx5-hangul \
     git \
     jq \
     neofetch \
     pandoc \
-    tmux
+    sshfs \
+    tmux \
+    pipewire \
+    xdg-desktop-portal-wlr
 
 echo "Installing packages:\n  $@"
 
