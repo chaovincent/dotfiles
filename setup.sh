@@ -16,6 +16,7 @@ fi
 ln -fsvt "${HOME}/.config/" \
     "${DOTFILES}/bash" \
     "${DOTFILES}/git" \
+    "${DOTFILES}/gtk-3.0" \
     "${DOTFILES}/mpv" \
     "${DOTFILES}/nvim" \
     "${DOTFILES}/tmux"
@@ -27,7 +28,7 @@ ln -fsv "${HOME}/.config/bash/bashrc" "${HOME}/.bashrc"
 # ${DOTFILES}/scripts/packages.sh
 # ${DOTFILES}/scripts/docker.sh
 # ${DOTFILES}/scripts/micromamba.sh
-${DOTFILES}/scripts/nvim.sh
+# ${DOTFILES}/scripts/nvim.sh
 # ${DOTFILES}/scripts/sway.sh
 
 # Source bashrc

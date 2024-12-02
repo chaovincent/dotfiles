@@ -69,6 +69,14 @@ return {
         dependencies="nvim-tree/nvim-web-devicons",
     },
 
+    -- Mini
+    {
+        "echasnovski/mini.nvim",
+        version = "*",
+        lazy=true,
+        dependencies="akinsho/bufferline.nvim",
+    },
+
     -- Nvimtree
     {
         "nvim-tree/nvim-tree.lua",
@@ -97,11 +105,6 @@ return {
     {
         "nvim-treesitter/nvim-treesitter-context",
     },
-
-    -- Vim Markdown Composer
-    --  {
-    --      "euclio/vim-markdown-composer",
-    --  },
 
     -- Which-key
     {
