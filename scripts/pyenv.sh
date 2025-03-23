@@ -1,6 +1,12 @@
 #!/bin/sh
 
-curl https://pyenv.run | bash
+if ! [ -x "$(command -v pyenv)" ]; then
+    curl -fsSL https://pyenv.run | bash
+fi
+
+if [ -d $PYENV_ROOT ]; then
+    git clone https://github.com/pyenv/pyenv-virtualenv.git ${PYENV_ROOT}/plugins/pyenv-virtualenv
+fi
 
 sudo apt install -y \
     build-essential \
@@ -19,4 +25,4 @@ sudo apt install -y \
     tk-dev \
     wget \
     xz-utils \
-    zlib1g-dev \
+    zlib1g-dev
