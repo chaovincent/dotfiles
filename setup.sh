@@ -16,9 +16,6 @@ fi
 ln -fsvt "${HOME}/.config/" \
     "${DOTFILES}/bash" \
     "${DOTFILES}/git" \
-    "${DOTFILES}/gtk-3.0" \
-    "${DOTFILES}/mpv" \
-    "${DOTFILES}/nvim" \
     "${DOTFILES}/tmux"
 
 # Symlink specific files
