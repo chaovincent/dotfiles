@@ -16,6 +16,8 @@ fi
 ln -fsvt "${HOME}/.config/" \
     "${DOTFILES}/bash" \
     "${DOTFILES}/git" \
+    "${DOTFILES}/java" \
+    "${DOTFILES}/npm" \
     "${DOTFILES}/tmux"
 
 # Symlink specific files
