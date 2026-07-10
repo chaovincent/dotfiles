@@ -10,13 +10,17 @@ alias tree="tree -C"
 alias diffs="diff --suppress-common-lines"
 
 # Vim
-# if [ -x "$(command -v nvim)" ]; then
-#     alias vim=nvim
-# elif [ -x "$(command -v pvim)" ]; then
-#     alias vim=pvim
-# elif [ -x "$(command -v vi)" ]; then
-#     alias vim=vi
-# fi
+if command -v nvim &> /dev/null; then
+    export EDITOR="nvim"
+    export VISUAL="nvim"
+elif command -v vim &> /dev/null; then
+    export EDITOR="vim"
+    export VISUAL="vim"
+else
+    export EDITOR="vi"
+    export VISUAL="vi"
+fi
+alias vi=$EDITOR
 
 # Conda
 # if [ -x "$(which $(command -v micromamba))" ]; then
