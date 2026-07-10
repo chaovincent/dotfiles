@@ -5,6 +5,11 @@ SCRIPTS_DIR="${DOTFILES_DIR}/.scripts"
 PACKAGES=(
     neofetch
     neovim
+    wezterm
+    # AwesomeWM
+    awesome
+    nitrogen
+    rofi
 )
 
 # Create ${HOME}/.config if it doesn't exist

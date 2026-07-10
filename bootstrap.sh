@@ -10,6 +10,11 @@ PACKAGES=(
     mpv
     nvim
     tmux
+    wezterm
+    # AwesomeWM
+    awesome
+    nitrogen
+    rofi
 )
 
 # Create ${HOME}/.config if it doesn't exist
