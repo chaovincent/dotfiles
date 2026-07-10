@@ -10,8 +10,8 @@ if [ -d "$HOME/.local/bin" ] && [[ ":$PATH:" != *":$HOME/.local/bin:"* ]]; then
 fi
 
 # Source additional files
-if [ -d $(dirname $(realpath ${BASH_SOURCE[0]}))/bash.d ]; then
-    for d in $(dirname $(realpath ${BASH_SOURCE[0]}))/bash.d/*; do
+if [ -d $HOME/.config/bash ]; then
+    for d in $HOME/.config/bash/*; do
         . $d
     done
 fi
