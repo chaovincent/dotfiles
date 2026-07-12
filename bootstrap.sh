@@ -28,7 +28,7 @@ echo "========================================"
 
 # 1. Ensure dependencies are installed
 if ! command -v git &> /dev/null || ! command -v stow &> /dev/null; then
-    echo "Git or Store is missing. Installing core dependencies..."
+    echo "Git or Stow is missing. Installing core dependencies..."
     if command -v apt &> /dev/null; then
         sudo apt update && sudo apt install -y git stow
     else
