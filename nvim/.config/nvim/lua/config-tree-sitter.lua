@@ -1,28 +1,35 @@
-local configs = require("nvim-treesitter.config")
-configs.setup {
-    -- Add a language of your choice
+local status_ok, treesitter = pcall(require, "nvim-treesitter.config")
+if not status_ok then
+    return
+end
+
+local setup = {
     ensure_installed = {
-        "bash", 
-        "c", 
-        "cpp", 
-        "dockerfile", 
-        "gitattributes", 
-        "gitignore", 
-        "javascript", 
-        "json", 
-        -- "latex",
-        "lua", 
-        "markdown", 
+        "bash",
+        "c",
+        "cpp",
+        "dockerfile",
+        "gitattributes",
+        "gitignore",
+        "javascript",
+        "json",
+        "lua",
+        "markdown",
         "python",
         "toml",
         "yaml",
     },
     sync_install = false,
-    ignore_install = { "" }, -- List of parsers to ignore installing
     highlight = {
-        enable = true, -- false will disable the whole extension
-        disable = { "" }, -- list of language that will be disabled
+        enable = true,
         additional_vim_regex_highlighting = true,
     },
-    indent = { enable = true, disable = { "yaml" } },
+    indent = {
+        enable = true,
+        disable = {
+            "yaml",
+        },
+    },
 }
+
+treesitter.setup(setup)
