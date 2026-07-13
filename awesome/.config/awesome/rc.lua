@@ -276,6 +276,9 @@ root.buttons(gears.table.join(
 
 -- {{{ Key bindings
 globalkeys = gears.table.join(
+    awful.key({ modkey }, "`", function()
+        awful.spawn("wezterm start --class floating_term")
+    end, { description = "open floating terminal", group = "launcher" }),
     awful.key({ modkey }, "s", hotkeys_popup.show_help, { description = "show help", group = "awesome" }),
     awful.key({ modkey }, "Left", awful.tag.viewprev, { description = "view previous", group = "tag" }),
     awful.key({ modkey }, "Right", awful.tag.viewnext, { description = "view next", group = "tag" }),
@@ -574,6 +577,20 @@ awful.rules.rules = {
     -- Set Firefox to always map on the tag named "2" on screen 1.
     -- { rule = { class = "Firefox" },
     --   properties = { screen = 1, tag = "2" } },
+
+    -- Rule for scratchpad terminal
+    {
+        rule = { class = "floating_term" },
+        properties = {
+            floating = true,
+            ontop = true,
+            placement = awful.placement.centered,
+        },
+        callback = function(c)
+            -- Set custom window geometry
+            c:geometry({ width = 1000, height = 600 })
+        end,
+    },
 }
 -- }}}
 
