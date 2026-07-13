@@ -6,7 +6,7 @@ end
 rose_pine.setup({
     styles = {
         transparancy = true,
-    }
+    },
 })
 
 vim.cmd("colorscheme rose-pine")

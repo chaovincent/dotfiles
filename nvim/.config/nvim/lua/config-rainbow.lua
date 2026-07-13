@@ -5,6 +5,6 @@ end
 
 rainbow.setup({
     strategy = {
-        [''] = 'rainbow-delimiters.strategy.global',
+        [""] = "rainbow-delimiters.strategy.global",
     },
 })

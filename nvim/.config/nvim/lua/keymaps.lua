@@ -22,10 +22,10 @@ vim.g.maplocalleader = ","
 
 -- Normal Mode
 -- Better window navigation
-keymap("n", "<C-h>", "<C-w>h", opts)  -- Left window
-keymap("n", "<C-k>", "<C-w>k", opts)  -- Up window
-keymap("n", "<C-j>", "<C-w>j", opts)  -- Down window
-keymap("n", "<C-l>", "<C-w>l", opts)  -- Right window
+keymap("n", "<C-h>", "<C-w>h", opts) -- Left window
+keymap("n", "<C-k>", "<C-w>k", opts) -- Up window
+keymap("n", "<C-j>", "<C-w>j", opts) -- Down window
+keymap("n", "<C-l>", "<C-w>l", opts) -- Right window
 
 -- Navigate Buffers
 keymap("n", "L", ":bnext<cr>", opts)

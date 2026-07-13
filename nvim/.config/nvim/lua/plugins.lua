@@ -4,7 +4,9 @@ return {
     {
         "goolord/alpha-nvim",
         event = "VimEnter",
-        config = function() require("config-alpha") end
+        config = function()
+            require("config-alpha")
+        end,
     },
 
     -- Autopairs
@@ -20,7 +22,9 @@ return {
     {
         "akinsho/bufferline.nvim",
         dependencies = "nvim-tree/nvim-web-devicons",
-        config = function() require("config-bufferline") end
+        config = function()
+            require("config-bufferline")
+        end,
     },
 
     -- Gitsigns
@@ -28,7 +32,9 @@ return {
     {
         "lewis6991/gitsigns.nvim",
         event = { "BufReadPre", "BufNewFile" },
-        config = function() require("config-gitsigns") end
+        config = function()
+            require("config-gitsigns")
+        end,
     },
 
     -- Hop
@@ -38,7 +44,9 @@ return {
         keys = {
             { "s", "<cmd>HopPattern<cr>", desc = "Hop Pattern (Incremental Search)" },
         },
-        config = function() require("config-hop") end
+        config = function()
+            require("config-hop")
+        end,
     },
 
     -- Indentation Highlighting
@@ -80,7 +88,9 @@ return {
     {
         "nvim-lualine/lualine.nvim",
         dependencies = "nvim-tree/nvim-web-devicons",
-        config = function() require("config-lualine") end
+        config = function()
+            require("config-lualine")
+        end,
     },
 
     -- Nvimtree
@@ -90,9 +100,11 @@ return {
         dependencies = "nvim-tree/nvim-web-devicons",
         cmd = { "NvimTreeToggle", "NvimTreeFocus" },
         keys = {
-            { "e", "NvimTreeToggle", desc = "Toggle Tree" }
+            { "e", "NvimTreeToggle", desc = "Toggle Tree" },
         },
-        config = function() require("config-nvim-tree") end
+        config = function()
+            require("config-nvim-tree")
+        end,
     },
 
     -- Rose Pine theme
@@ -100,7 +112,9 @@ return {
     {
         "rose-pine/neovim",
         name = "rose-pine",
-        config = function() require("config-rose-pine") end
+        config = function()
+            require("config-rose-pine")
+        end,
     },
 
     -- Rainbow Highlighting
@@ -118,7 +132,9 @@ return {
             { "ff", "Telescope find_files", desc = "Find Files" },
             { "fg", "Telescope live_grep", desc = "Live Grep" },
         },
-        config = function() require("config-telescope") end
+        config = function()
+            require("config-telescope")
+        end,
     },
 
     -- Treesitter
@@ -127,13 +143,17 @@ return {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
         event = { "BufReadPost", "BufNewFile" },
-        config = function() require("config-tree-sitter") end
+        config = function()
+            require("config-tree-sitter")
+        end,
     },
 
     -- Which-key
     -- Popup cheat sheet that displays available keybindings.
     {
         "folke/which-key.nvim",
-        config = function() require("config-which-key") end
+        config = function()
+            require("config-which-key")
+        end,
     },
 }
