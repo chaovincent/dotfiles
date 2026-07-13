@@ -28,5 +28,5 @@ keymap("n", "<C-j>", "<C-w>j", opts)  -- Down window
 keymap("n", "<C-l>", "<C-w>l", opts)  -- Right window
 
 -- Navigate Buffers
-keymap("n", "<tab>", ":bnext<cr>", opts)  -- Next tab
-keymap("n", "<s-tab>", ":bprevious<cr>", opts)  -- Previous tab
+keymap("n", "L", ":bnext<cr>", opts)
+keymap("n", "H", ":bprevious<cr>", opts)

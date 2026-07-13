@@ -33,6 +33,13 @@ end
 -- 2. Setup nvim-tree
 nvim_tree.setup {
   on_attach = my_on_attach, -- Attach your custom keys here
+  filesystem_watchers = {
+      enable = disable,  -- Disable to avoid freezing on NFS mounts
+  },
+  git = {
+      enable = true,  -- Prevent git from scraping large folders recursively
+      timeout = 400,
+  },
   update_focused_file = {
     enable = true,
     update_root = true, -- Updated from the deprecated update_cwd
@@ -79,5 +86,13 @@ nvim_tree.setup {
     width = 30,
     side = "left",
     -- The broken mappings block is completely removed from here
+  },
+  filters = {
+    custom = {
+      "^\\.git$",
+      "^node_modules$",
+      "^\\.?venv$",
+      "^\\.?cache$",
+    },
   },
 }
