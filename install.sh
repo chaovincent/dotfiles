@@ -8,6 +8,7 @@ PACKAGES=(
     wezterm
     # AwesomeWM
     awesome
+    i3lock
     nitrogen
     rofi
 )
