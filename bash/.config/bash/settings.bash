@@ -20,5 +20,11 @@ bind '"\C-n": history-search-forward'
 # Misc #
 #======#
 
+# Menu Completion
+bind 'set show-all-if-ambiguous on'
+bind 'set menu-complete-display-prefix on'
+bind '"\t":menu-complete'
+bind '"\e[Z":menu-complete-backward'
+
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
