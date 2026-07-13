@@ -257,18 +257,6 @@ globalkeys = gears.table.join(
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
 
-    awful.key({ modkey,           }, "j",
-        function ()
-            awful.client.focus.byidx( 1)
-        end,
-        {description = "focus next by index", group = "client"}
-    ),
-    awful.key({ modkey,           }, "k",
-        function ()
-            awful.client.focus.byidx(-1)
-        end,
-        {description = "focus previous by index", group = "client"}
-    ),
     awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
               {description = "show main menu", group = "awesome"}),
 
@@ -297,11 +285,6 @@ globalkeys = gears.table.join(
               {description = "open a terminal", group = "launcher"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
-    -- awful.key({ modkey, "Shift"   }, "q", awesome.quit,
-    --           {description = "quit awesome", group = "awesome"}),
-
-    -- awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)          end,
-    --           {description = "increase master width factor", group = "layout"}),
     -- Focus windows by direction using Vim keys
     awful.key({ modkey }, "h", function () awful.client.focus.bydirection("left") if client.focus then client.focus:raise() end end,
               {description = "focus left", group = "client"}),
@@ -311,7 +294,6 @@ globalkeys = gears.table.join(
               {description = "focus up", group = "client"}),
     awful.key({ modkey }, "l", function () awful.client.focus.bydirection("right") if client.focus then client.focus:raise() end end,
               {description = "focus right", group = "client"}),
-    -- Swap/Move windows by direction
     -- Swap/Move windows by direction using Capital HJKL
     awful.key({ modkey, "Shift" }, "h", function () if client.focus then awful.client.swap.bydirection("left", client.focus) end end,
               {description = "swap left", group = "client"}),
