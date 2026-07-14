@@ -1,8 +1,10 @@
 local wezterm = require("wezterm")
-local config = {}
+local config = wezterm.config_builder()
 
 config.color_scheme = "rose-pine"
-config.font_size = 12
+config.font_size = 10
+config.max_fps = 60
+config.window_padding = { left = 0, right = 0, top = 0, bottom = 0 }
 
 config.colors = {
     selection_bg = "#44415a",
