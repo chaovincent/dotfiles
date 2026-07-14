@@ -1,13 +1,15 @@
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
+alias grep="grep --color=auto"
+alias fgrep="fgrep --color=auto"
+alias egrep="egrep --color=auto"
 
-alias ls='ls --color=auto --group-directories-first'
-alias ll='ls -alF'
+alias ls="ls --color=auto --group-directories-first"
+alias ll="ls -alF"
 
 alias src="source ${HOME}/.bashrc"
 alias tree="tree -C"
 alias diffs="diff --suppress-common-lines"
+
+alias o="xdg-open"
 
 # Vim
 if command -v nvim &> /dev/null; then
@@ -21,6 +23,7 @@ else
     export VISUAL="vi"
 fi
 alias vi=$EDITOR
+alias v="vi -R"
 
 # Conda
 # if [ -x "$(which $(command -v micromamba))" ]; then
