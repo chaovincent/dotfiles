@@ -1,8 +1,7 @@
 [user]
-	name = Vincent Chao
-	email = vincechao.93@gmail.com
+    name = Vincent Chao
 [core]
-	editor = vi
-	excludesfile = /home/vchao/.config/git/ignore
+    editor = vi
+    excludesfile = /home/vchao/.config/git/ignore
 [pull]
-	rebase = false
+	rebase = true
