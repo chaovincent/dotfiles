@@ -54,3 +54,27 @@ opt.shortmess:append({ W = true, I = true, c = true }) -- Shorten various Neovim
 
 -- Globals
 vim.g.markdown_recommended_style = 0 -- Fix markdown indentation settings
+
+-- Safe Exit Interceptor
+-- Prevents accidental exits when you have multiple background buffers open
+vim.api.nvim_create_user_command("SafeQuit", function()
+    local bufs = vim.tbl_filter(function(buf)
+        return vim.api.nvim_buf_is_loaded(buf) and vim.bo[buf].buflisted
+    end, vim.api.nvim_list_bufs())
+
+    -- Only prompt if we are closing the last active window split
+    if #vim.api.nvim_list_wins() == 1 and #bufs > 1 then
+        vim.api.nvim_echo({ { "Quit Neovim with " .. #bufs .. " open buffers? (y/N): ", "WarningMsg" } }, false, {})
+        local char = string.lower(vim.fn.getcharstr())
+        vim.cmd("redraw")
+
+        if char == "y" then
+            vim.cmd("qa!")
+        end
+    else
+        vim.cmd("q")
+    end
+end, {})
+
+-- Maps command-line ":q" to our SafeQuit command instantly when you press Enter or Space
+vim.cmd([[cabbrev <expr> q (getcmdtype() == ':' && getcmdpos() == 2) ? 'SafeQuit' : 'q']])
