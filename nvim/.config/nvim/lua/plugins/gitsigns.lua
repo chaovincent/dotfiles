@@ -51,18 +51,85 @@ return {
         },
     },
     keys = {
-        { "gR", "lua require('gitsigns').reset_buffer()", desc = "Reset Buffer" },
-        { "gd", "Gitsigns diffthis HEAD", desc = "Diff" },
-        { "gj", "lua require('gitsigns').next_hunk()", desc = "Next Hunk" },
-        { "gk", "lua require('gitsigns').prev_hunk()", desc = "Prev Hunk" },
-        { "gl", "lua require('gitsigns').blame_line()", desc = "Blame" },
-        { "gp", "lua require('gitsigns').preview_hunk()", desc = "Preview Hunk" },
-        { "gr", "lua require('gitsigns').reset_hunk()", desc = "Reset Hunk" },
-        { "gs", "lua require('gitsigns').stage_hunk()", desc = "Stage Hunk" },
-        { "gu", "lua require('gitsigns').undo_stage_hunk()", desc = "Undo Stage Hunk" },
-        -- Telescope
-        { "gb", "Telescope git_branches", desc = "Checkout branch" },
-        { "gc", "Telescope git_commits", desc = "Checkout commit" },
-        { "go", "Telescope git_status", desc = "Open changed file" },
+        {
+            "gR",
+            function()
+                require("gitsigns").reset_buffer()
+            end,
+            desc = "Reset Buffer",
+        },
+        { "gd", "<cmd>Gitsigns diffthis HEAD<cr>", desc = "Diff" },
+        {
+            "gj",
+            function()
+                require("gitsigns").next_hunk()
+            end,
+            desc = "Next Hunk",
+        },
+        {
+            "gk",
+            function()
+                require("gitsigns").prev_hunk()
+            end,
+            desc = "Prev Hunk",
+        },
+        {
+            "gl",
+            function()
+                require("gitsigns").blame_line()
+            end,
+            desc = "Blame",
+        },
+        {
+            "gp",
+            function()
+                require("gitsigns").preview_hunk()
+            end,
+            desc = "Preview Hunk",
+        },
+        {
+            "gr",
+            function()
+                require("gitsigns").reset_hunk()
+            end,
+            desc = "Reset Hunk",
+        },
+        {
+            "gs",
+            function()
+                require("gitsigns").stage_hunk()
+            end,
+            desc = "Stage Hunk",
+        },
+        {
+            "gu",
+            function()
+                require("gitsigns").undo_stage_hunk()
+            end,
+            desc = "Undo Stage Hunk",
+        },
+
+        -- Modernized Git Pickers (Uses Snacks instead of the missing Telescope)
+        {
+            "<leader>gb",
+            function()
+                Snacks.picker.git_branches()
+            end,
+            desc = "Git Branches",
+        },
+        {
+            "<leader>gc",
+            function()
+                Snacks.picker.git_log()
+            end,
+            desc = "Git Commits (Log)",
+        },
+        {
+            "<leader>gs",
+            function()
+                Snacks.picker.git_status()
+            end,
+            desc = "Git Status",
+        },
     },
 }

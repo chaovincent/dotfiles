@@ -71,10 +71,18 @@ return {
 
                 -- Route navigation to Snacks Picker if available, fallback to native LSP if not
                 if has_snacks then
-                    map("gd", function() snacks.picker.lsp_definitions() end, "Go to Definition")
-                    map("gD", function() snacks.picker.lsp_declarations() end, "Go to Declaration")
-                    map("gi", function() snacks.picker.lsp_implementations() end, "Go to Implementation")
-                    map("gr", function() snacks.picker.lsp_references() end, "Go to References")
+                    map("gd", function()
+                        snacks.picker.lsp_definitions()
+                    end, "Go to Definition")
+                    map("gD", function()
+                        snacks.picker.lsp_declarations()
+                    end, "Go to Declaration")
+                    map("gi", function()
+                        snacks.picker.lsp_implementations()
+                    end, "Go to Implementation")
+                    map("gr", function()
+                        snacks.picker.lsp_references()
+                    end, "Go to References")
                 else
                     map("gd", vim.lsp.buf.definition, "Go to Definition")
                     map("gD", vim.lsp.buf.declaration, "Go to Declaration")
@@ -86,7 +94,9 @@ return {
                 map("<C-k>", vim.lsp.buf.signature_help, "Signature Help")
                 map("<leader>rn", vim.lsp.buf.rename, "Rename Variable")
                 map("<leader>ca", vim.lsp.buf.code_action, "Code Action")
-                map("<leader>f", function() vim.lsp.buf.format({ async = true }) end, "Format File")
+                map("<leader>f", function()
+                    vim.lsp.buf.format({ async = true })
+                end, "Format File")
             end,
         })
     end,
