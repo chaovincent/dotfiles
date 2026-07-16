@@ -5,6 +5,7 @@ SCRIPTS_DIR="${DOTFILES_DIR}/.scripts"
 PACKAGES=(
     neofetch
     neovim
+    ripgrep
     wezterm
     # AwesomeWM
     awesome

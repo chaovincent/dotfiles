@@ -67,17 +67,26 @@ return {
                     vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
                 end
 
-                map("gd", vim.lsp.buf.definition, "Go to Definition")
-                map("gD", vim.lsp.buf.declaration, "Go to Declaration")
-                map("gi", vim.lsp.buf.implementation, "Go to Implementation")
-                map("gr", vim.lsp.buf.references, "Go to References")
+                local has_snacks, snacks = pcall(require, "snacks")
+
+                -- Route navigation to Snacks Picker if available, fallback to native LSP if not
+                if has_snacks then
+                    map("gd", function() snacks.picker.lsp_definitions() end, "Go to Definition")
+                    map("gD", function() snacks.picker.lsp_declarations() end, "Go to Declaration")
+                    map("gi", function() snacks.picker.lsp_implementations() end, "Go to Implementation")
+                    map("gr", function() snacks.picker.lsp_references() end, "Go to References")
+                else
+                    map("gd", vim.lsp.buf.definition, "Go to Definition")
+                    map("gD", vim.lsp.buf.declaration, "Go to Declaration")
+                    map("gi", vim.lsp.buf.implementation, "Go to Implementation")
+                    map("gr", vim.lsp.buf.references, "Go to References")
+                end
+
                 map("K", vim.lsp.buf.hover, "Hover Documentation")
                 map("<C-k>", vim.lsp.buf.signature_help, "Signature Help")
                 map("<leader>rn", vim.lsp.buf.rename, "Rename Variable")
                 map("<leader>ca", vim.lsp.buf.code_action, "Code Action")
-                map("<leader>f", function()
-                    vim.lsp.buf.format({ async = true })
-                end, "Format File")
+                map("<leader>f", function() vim.lsp.buf.format({ async = true }) end, "Format File")
             end,
         })
     end,
