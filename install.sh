@@ -12,6 +12,7 @@ PACKAGES=(
     i3lock
     nitrogen
     rofi
+    xautolock
 )
 
 # Create ${HOME}/.config if it doesn't exist

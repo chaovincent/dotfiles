@@ -283,7 +283,7 @@ globalkeys = gears.table.join(
     awful.key({ modkey }, "Left", awful.tag.viewprev, { description = "view previous", group = "tag" }),
     awful.key({ modkey }, "Right", awful.tag.viewnext, { description = "view next", group = "tag" }),
     awful.key({ modkey }, "Escape", function()
-        awful.spawn("i3lock -c 1a1a24")
+        awful.spawn("i3lock -c 191724")
     end, { description = "lock screen", group = "session" }),
 
     awful.key({ modkey }, "w", function()
@@ -664,3 +664,6 @@ end)
 
 -- Restore the wallpaper via Nitrogen
 awful.spawn.with_shell("nitrogen --restore")
+
+-- 30-minute idle lock
+awful.spawn.with_shell("xautolock -time 30 -locker 'i3lock -c 191724' -detectsleep")
