@@ -1,7 +1,7 @@
 local opts = { noremap = true, silent = true }
 local keymap = vim.keymap.set
 
--- Remap "," as leader key
+-- Set Space as leader key
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
@@ -39,3 +39,13 @@ keymap({ "n", "x", "o" }, "<leader>j", function()
         jump.start(jump.builtin_opts.single_character)
     end
 end, { desc = "Jump to Character" })
+
+-- Safe Buffer Delete (Preserves window splits)
+keymap("n", "<leader>bd", function()
+    local has_bufremove, bufremove = pcall(require, "mini.bufremove")
+    if has_bufremove then
+        bufremove.delete(0, false)
+    else
+        vim.cmd("bdelete")
+    end
+end, { desc = "Delete Buffer" })

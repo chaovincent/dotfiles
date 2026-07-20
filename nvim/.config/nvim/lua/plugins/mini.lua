@@ -1,4 +1,17 @@
 return {
+    -- Supercharged text objects
+    {
+        "echasnovski/mini.ai",
+        event = "VeryLazy",
+        opts = {},
+    },
+
+    -- Delete buffers without breaking window layouts/splits
+    {
+        "echasnovski/mini.bufremove",
+        event = "VeryLazy",
+    },
+
     -- Line and block code commenting
     {
         "echasnovski/mini.comment",
