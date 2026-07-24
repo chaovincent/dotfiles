@@ -205,12 +205,42 @@ end)
 globalkeys = gears.table.join(
     -- Applications & System
     awful.key({ modkey }, "Return", function() awful.spawn(terminal) end, { description = "open terminal", group = "launcher" }),
-    awful.key({ modkey }, "`", function() awful.spawn("wezterm start --class floating_term") end, { description = "open floating scratchpad", group = "launcher" }),
     awful.key({ modkey }, "d", function() awful.spawn("rofi -show drun") end, { description = "rofi launcher", group = "launcher" }),
     awful.key({ modkey }, "b", function() awful.spawn("xdg-open https://") end, { description = "open browser", group = "launcher" }),
     awful.key({ modkey }, "Escape", function() awful.spawn("i3lock -c 191724") end, { description = "lock screen", group = "session" }),
     awful.key({ modkey }, "s", hotkeys_popup.show_help, { description = "show help", group = "awesome" }),
     awful.key({ modkey, "Control" }, "r", awesome.restart, { description = "reload awesome", group = "awesome" }),
+    --
+    -- Smart Persistent Scratchpad Terminal
+    awful.key({ modkey }, "`", function()
+        local scratch_client = nil
+        -- Find the running scratchpad instance
+        for _, c in ipairs(client.get()) do
+            if c.class == "floating_term" then
+                scratch_client = c
+                break
+            end
+        end
+
+        if not scratch_client then
+            -- 1. Spawn if it doesn't exist yet
+            awful.spawn("wezterm start --class floating_term")
+        else
+            local cur_tag = awful.screen.focused().selected_tag
+            if client.focus == scratch_client then
+                -- 2. If open and currently focused, hide it
+                scratch_client.minimized = true
+            else
+                -- 3. If closed or on another tag, bring it here and focus
+                scratch_client.minimized = false
+                if cur_tag then
+                    scratch_client:move_to_tag(cur_tag)
+                end
+                scratch_client:raise()
+                client.focus = scratch_client
+            end
+        end
+    end, { description = "toggle scratchpad terminal", group = "launcher" }),
 
     -- Screenshots
     awful.key({}, "Print", function() awful.util.spawn("screenshot") end, { description = "screenshot", group = "screenshots" }),
@@ -332,18 +362,6 @@ awful.rules.rules = {
         properties = { floating = true },
     },
 
-    -- Floating Scratchpad Terminal
-    {
-        rule = { class = "floating_term" },
-        properties = {
-            floating = true,
-            ontop = true,
-            placement = awful.placement.centered,
-        },
-        callback = function(c)
-            c:geometry({ width = 1000, height = 600 })
-        end,
-    },
 }
 
 -- -----------------------------------------------------------------------------
