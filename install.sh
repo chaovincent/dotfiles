@@ -3,6 +3,7 @@
 DOTFILES_DIR="$(git rev-parse --show-toplevel)"
 SCRIPTS_DIR="${DOTFILES_DIR}/.scripts"
 PACKAGES=(
+    fd-find
     neofetch
     neovim
     ripgrep
