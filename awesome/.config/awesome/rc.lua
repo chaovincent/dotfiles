@@ -210,11 +210,10 @@ globalkeys = gears.table.join(
     awful.key({ modkey }, "Escape", function() awful.spawn("i3lock -c 191724") end, { description = "lock screen", group = "session" }),
     awful.key({ modkey }, "s", hotkeys_popup.show_help, { description = "show help", group = "awesome" }),
     awful.key({ modkey, "Control" }, "r", awesome.restart, { description = "reload awesome", group = "awesome" }),
-    --
-    -- Smart Persistent Scratchpad Terminal
+
+    -- Smart Persistent Scratchpad Terminal (Always on Top)
     awful.key({ modkey }, "`", function()
         local scratch_client = nil
-        -- Find the running scratchpad instance
         for _, c in ipairs(client.get()) do
             if c.class == "floating_term" then
                 scratch_client = c
@@ -228,11 +227,12 @@ globalkeys = gears.table.join(
         else
             local cur_tag = awful.screen.focused().selected_tag
             if client.focus == scratch_client then
-                -- 2. If open and currently focused, hide it
+                -- 2. If open and currently focused, hide (minimize) it
                 scratch_client.minimized = true
             else
-                -- 3. If closed or on another tag, bring it here and focus
+                -- 3. Bring to front and keep on top
                 scratch_client.minimized = false
+                scratch_client.ontop = true -- 👈 Force z-index layer above all other windows
                 if cur_tag then
                     scratch_client:move_to_tag(cur_tag)
                 end
@@ -362,6 +362,20 @@ awful.rules.rules = {
         properties = { floating = true },
     },
 
+    -- Floating Scratchpad Terminal Rule
+    {
+        rule = { class = "floating_term" },
+        properties = {
+            floating = true,
+            ontop = true,
+            sticky = true,
+            skip_taskbar = true,
+            placement = awful.placement.centered,
+        },
+        callback = function(c)
+            c:geometry({ width = 1000, height = 600 })
+        end,
+    },
 }
 
 -- -----------------------------------------------------------------------------
