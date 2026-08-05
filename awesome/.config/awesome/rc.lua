@@ -402,6 +402,9 @@ client.connect_signal("unfocus", function(c)
     c.border_color = beautiful.border_normal
 end)
 
+-- Autostart compositor
+awful.spawn.with_shell("pkill xcompmgr; xcompmgr -c -n -C &")
+
 -- Autostart Background Commands
 awful.spawn.with_shell("nitrogen --restore")
 awful.spawn.with_shell("xautolock -time 30 -locker 'i3lock -c 191724' -detectsleep")

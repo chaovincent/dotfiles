@@ -14,6 +14,7 @@ PACKAGES=(
     nitrogen
     rofi
     xautolock
+    xcompmgr
 )
 
 # Create ${HOME}/.config if it doesn't exist
