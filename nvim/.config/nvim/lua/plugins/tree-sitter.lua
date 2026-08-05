@@ -1,41 +1,34 @@
 return {
     "nvim-treesitter/nvim-treesitter",
-    branch = "master",
+    branch = "main",
     build = ":TSUpdate",
-    event = { "BufReadPost", "BufNewFile" },
+    lazy = false,
     config = function()
-        local status_ok, configs = pcall(require, "nvim-treesitter.configs")
-        if not status_ok then
-            return
-        end
+        local ts = require("nvim-treesitter")
+        ts.setup()
+        ts.install({
+            "bash",
+            "c",
+            "cpp",
+            "dockerfile",
+            "gitattributes",
+            "gitignore",
+            "javascript",
+            "json",
+            "lua",
+            "markdown",
+            "markdown_inline",
+            "python",
+            "toml",
+            "yaml",
+        })
 
-        configs.setup({
-            ensure_installed = {
-                "bash",
-                "c",
-                "cpp",
-                "dockerfile",
-                "gitattributes",
-                "gitignore",
-                "javascript",
-                "json",
-                "lua",
-                "markdown",
-                "python",
-                "toml",
-                "yaml",
-            },
-            sync_install = false,
-            highlight = {
-                enable = true,
-                additional_vim_regex_highlighting = false,
-            },
-            indent = {
-                enable = true,
-                disable = {
-                    "yaml",
-                },
-            },
+        -- Enable Native Highlighting and Indentation
+        vim.api.nvim_create_autocmd("FileType", {
+            callback = function(args)
+                pcall(vim.treesitter.start)
+                vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+            end,
         })
     end,
 }

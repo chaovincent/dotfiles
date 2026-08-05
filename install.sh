@@ -3,10 +3,16 @@
 DOTFILES_DIR="$(git rev-parse --show-toplevel)"
 SCRIPTS_DIR="${DOTFILES_DIR}/.scripts"
 PACKAGES=(
+    cargo
+    clang
     fd-find
+    imagemagick
+    libclang-dev
+    libmagickwand-dev
     neofetch
     neovim
     ripgrep
+    tree-sitter-cli
     wezterm
     # AwesomeWM
     awesome
