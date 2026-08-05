@@ -6,7 +6,6 @@ return {
     config = function()
         local status_ok, configs = pcall(require, "nvim-treesitter.configs")
         if not status_ok then
-            vim.notify("Treesitter is switching branches. Open :Lazy and press 'U' to sync!", vim.log.levels.WARN)
             return
         end
 
