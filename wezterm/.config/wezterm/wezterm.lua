@@ -5,7 +5,10 @@ local config = wezterm.config_builder()
 config.color_scheme = "rose-pine"
 config.font_size = 10.0
 config.window_padding = { left = 0, right = 0, top = 0, bottom = 0 }
-
+config.colors = {
+    selection_bg = "#4a466a", -- High-contrast Rosé Pine overlay
+    selection_fg = "#ffffff", -- Crisp white text
+}
 -- Sizing & Performance
 config.use_resize_increments = true
 config.adjust_window_size_when_changing_font_size = false
