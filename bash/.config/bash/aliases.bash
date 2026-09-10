@@ -3,13 +3,16 @@ alias fgrep="fgrep --color=auto"
 alias egrep="egrep --color=auto"
 
 alias ls="ls --color=auto --group-directories-first"
-alias ll="ls -alF"
+alias ll="ls -ahlF"
 
 alias src="source ${HOME}/.bashrc"
 alias tree="tree -C"
 alias diffs="diff --suppress-common-lines"
 
 alias o="xdg-open"
+
+# Git
+alias gcd="cd $(git rev-parse --show-toplevel)"
 
 # Vim
 if command -v nvim &> /dev/null; then
@@ -29,3 +32,4 @@ alias v="vi -R"
 # if [ -x "$(which $(command -v micromamba))" ]; then
 #     alias conda=micromamba
 # fi
+
