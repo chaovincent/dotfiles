@@ -27,6 +27,10 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 -- Navigate Buffers
 keymap("n", "L", ":bnext<cr>", opts)
 keymap("n", "H", ":bprevious<cr>", opts)
+keymap("t", "<C-h>", "<C-\\><C-n><C-w>h", { desc = "Switch to left window"})
+keymap("t", "<C-j>", "<C-\\><C-n><C-w>j", { desc = "Switch to lower window"})
+keymap("t", "<C-k>", "<C-\\><C-n><C-w>k", { desc = "Switch to upper window"})
+keymap("t", "<C-l>", "<C-\\><C-n><C-w>l", { desc = "Switch to right window"})
 
 -- Package & Tool Management
 keymap("n", "<leader>p", "<cmd>Lazy<cr>", { desc = "Plugin Manager (Lazy)" })
