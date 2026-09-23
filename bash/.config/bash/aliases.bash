@@ -12,7 +12,7 @@ alias diffs="diff --suppress-common-lines"
 alias o="xdg-open"
 
 # Git
-alias gcd="cd $(git rev-parse --show-toplevel)"
+alias gcd='cd $(git rev-parse --show-toplevel 2>/dev/null)'
 
 # Vim
 if command -v nvim &> /dev/null; then

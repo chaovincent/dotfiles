@@ -47,7 +47,7 @@ function prompt_command(){
     # Current git branch
     GITBRANCH=$(parse_git_branch)
     if [[ -n $GITBRANCH ]]; then
-        if [[ -n $(git status -s) ]]; then
+        if [[ -n $(git status -s 2>/dev/null) ]]; then
             GITBRANCH="\e[41m\e[3;30m${GITBRANCH} "
         else
             GITBRANCH="\e[43m\e[3;30m${GITBRANCH} "
