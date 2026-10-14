@@ -152,7 +152,7 @@ local gpu_widget = awful.widget.watch(
 
 awful.screen.connect_for_each_screen(function(s)
     -- Tags / Workspaces
-    awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
+    awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9", "0" }, s, awful.layout.layouts[1])
 
     s.mypromptbox = awful.widget.prompt()
     s.mylayoutbox = awful.widget.layoutbox(s)
@@ -298,7 +298,7 @@ clientkeys = gears.table.join(
     end, { description = "(un)maximize", group = "client" })
 )
 
--- Bind Number Keys (1-9) to Workspaces
+-- Bind Number Keys (1-0) to Workspaces
 for i = 1, 9 do
     globalkeys = gears.table.join(
         globalkeys,
@@ -315,6 +315,21 @@ for i = 1, 9 do
         end, { description = "move client to tag #" .. i, group = "tag" })
     )
 end
+
+globalkeys = gears.table.join(
+    globalkeys,
+    awful.key({ modkey }, "#19", function()
+        local screen = awful.screen.focused()
+        local tag = screen.tags[10]
+        if tag then tag:view_only() end
+    end, { description = "view tag #10", group = "tag" }),
+    awful.key({ modkey, "Shift" }, "#19", function()
+        if client.focus then
+            local tag = client.focus.screen.tags[10]
+            if tag then client.focus:move_to_tag(tag) end
+        end
+    end, { description = "move client to tag #10", group = "tag" })
+)
 
 clientbuttons = gears.table.join(
     awful.button({}, 1, function(c)
